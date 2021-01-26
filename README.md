@@ -1,4 +1,7 @@
 # Custom Datepicker
+### Project preview
+
+![datepicker-preview](https://github.com/guilhermecappi/Custom-Datepicker/blob/main/datepicker.gif)
 
 ### About the project
 
