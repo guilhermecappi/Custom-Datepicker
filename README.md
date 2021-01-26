@@ -1,11 +1,11 @@
 # Custom Datepicker
-### Project preview
+
+I decided to create a custom datepicker to test my skills with Angular and CSS3.
+The project funcionalities still not finished yet, but the appearance is all done. I tried to make it the most clean and nice I could.
+
+#### Here's a preview:
 
 ![datepicker-preview](https://github.com/guilhermecappi/Custom-Datepicker/blob/main/datepicker.gif)
-
-### About the project
-
-I decided to create a custom datepicker to test my skills with Angular and CSS3. I tried to make it the most clean and 
 
 Technologies used:
 
