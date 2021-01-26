@@ -1,0 +1,241 @@
+.calendar-tip{
+    position: absolute;
+    right: 1.5rem;
+    top: 6rem;
+    z-index: 1;
+
+    border: 1.5rem solid transparent;
+    width: 0;
+
+    transform: rotate(45deg);
+}
+.calendar-container{
+    position: absolute;
+    top: 7rem;
+    left: 0;
+
+    width: 25rem;
+    height: 34rem;
+
+    background: white;
+    border-radius: .5rem;
+    box-shadow: 0 0 6px rgba(0,0,0, .5);
+
+    animation: transform .5s ease;
+    .arrow-box{
+        color: white;
+        width: 4rem;
+        height: 4rem;
+
+        font-size: 1.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        &:hover{
+            background: (rgba(0,0,0, .1));
+            cursor: pointer;
+        }
+    }
+    .calendar-header{
+        width: 100%;
+        height: 9rem;
+
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        .year-display{
+            position: absolute;
+            top: -5rem;
+
+            border-radius: 50%;
+            width: 11rem;
+            height: 9rem;
+
+            font-size: 2.2rem;
+            color: white;
+
+            background: (rgba(0,0,0, .1));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover{
+                cursor: pointer;
+                background: (rgba(0,0,0, .2));
+            }
+
+            div{
+                margin-top: 4rem;
+            }
+        }
+        .year-section{
+            width: 70%;
+            height: 100%;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .year-select{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+
+                width: 8rem;
+                height: 8rem;
+
+                font-size: 2rem;
+                font-weight: 500;
+
+                background: (rgba(0,0,0, .1));
+                border-radius: 50%;
+
+                &:hover{
+                    cursor: pointer;
+                    background: (rgba(0,0,0, .2));
+                }
+            }
+        }
+        .month-section{
+            margin-top: 3.5rem;
+            width: 100%;
+            padding: 0 2rem;
+
+            font-size: 1.8rem;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span{
+                width: 50%;
+                height: 100%;
+
+                text-align: center;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .calendar-body{
+        width: 100%;
+        height: 25rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .calendar-weekday-wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: .5rem;
+
+            .calendar-weekday{
+                font-size: 1.2rem;
+                color: #888;
+                width: 3.2rem;
+                height: 4rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border-bottom: 1px solid #ededed;
+            }
+        }   
+        .calendar-day-wrapper{
+            display: grid;
+            grid-gap: 1px;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+            .calendar-day{
+                width: 3.2rem;
+                height: 3.2rem;
+                border-radius: 50%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 1.4rem;
+
+                &.today{
+                    border: .5px solid #bbb;
+                }
+            }
+            
+        }
+        .year-list-wrapper{
+            overflow: scroll;
+            &::-webkit-scrollbar{
+                width: 1rem;
+            }
+            &::-webkit-scrollbar-thumb{
+                width: .5rem;
+                background: #ccc;
+                border-radius: .5rem;
+            }
+
+            width: 100%;
+            height: 100%;
+            padding: 1rem 1.5rem;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-row-gap: .5rem;
+
+            .calendar-year{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 1.4rem;
+                width: 5rem;
+                height: 3.5rem;
+
+                border-radius: .5rem;
+
+                &:hover{
+                    cursor: pointer;
+                    background: rgba($color: #ccc, $alpha: .4);
+                }
+                &.actual-year{
+                    background: rgba($color: #ccc, $alpha: .2);
+                    border: 1px solid #bbb
+                }
+            }
+        }
+    }
+}
+
+@keyframes transform{
+    0%{
+        transform: rotateX(70deg);
+        transform-origin: top;
+    }
+    100%{
+        transform: rotateX(0deg);
+        transform-origin: top;
+    }
+}

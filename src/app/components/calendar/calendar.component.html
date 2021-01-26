@@ -1,0 +1,59 @@
+<span class="calendar-tip" style="border-top-color: {{color}}; border-left-color: {{color}};"></span>
+<div class="calendar-container" [ngSwitch]="bodyState">
+    <div *ngSwitchCase="'days'">
+        <div class="calendar-header" style="background: {{color}};">
+            <div (click)="SwitchBody()" class="year-display">
+                <div>
+                    {{year}}
+                </div>
+            </div>
+            <div class="month-section">
+                <div (click)="prevMonth()" class="arrow-box">
+                    <fa-icon [icon]="leftArrow" [fixedWidth]="true"></fa-icon>
+                </div>
+                <span>{{months[month]}}</span>
+                <div (click)="nextMonth()" class="arrow-box">
+                    <fa-icon [icon]="rightArrow" [fixedWidth]="true"></fa-icon>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-weekday-wrapper">
+                <div class="calendar-weekday" *ngFor="let weekday of weekdays">
+                    {{weekday[0]}}
+                </div>
+            </div>
+            <div class="calendar-day-wrapper">
+                <div class="calendar-day"
+                #calendarday
+                [class.today]="day == date.getDate() && month == date.getMonth() && year == date.getFullYear()"
+                [style.backgroundColor]="day == this.selectedDay && month == this.selectedMonth && year == this.selectedYear ? color : 'initial'"
+                *ngFor="let day of calendarDays"
+                (click)="selectDate(day, month, year, calendarday)">
+                    {{day}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'years'">
+        <div class="calendar-header" style="background: {{color}};">
+            
+            <div class="year-section">
+                <div (click)="SwitchBody()" class="year-select">
+                    <div>{{year}}</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="calendar-body">
+            <div class="year-list-wrapper">
+                <div [class.actual-year]="year == date.getFullYear()"
+                class="calendar-year" *ngFor="let year of years" (click)="selectYear(year)"
+                [style.backgroundColor]="year == selectedYear ? color : 'initial'">
+                    {{year}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

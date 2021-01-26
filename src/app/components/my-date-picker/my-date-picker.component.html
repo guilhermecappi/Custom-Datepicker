@@ -1,0 +1,10 @@
+<div class="datepicker-wrapper">
+    <div class="input-box">
+        <input id="date" class="text-input" type="text" autocomplete="off" required name="date" [ngModel]="formatedDate">
+        <label for="date">Pick a date</label>
+    </div>
+    <div class="icon-wrapper" (click)="openCalendar()">
+        <fa-icon [icon]="dateIcon"></fa-icon>
+    </div>
+    <app-calendar [color]="color" *ngIf="toggleCalendar"></app-calendar>
+</div>
